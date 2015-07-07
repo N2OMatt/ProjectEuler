@@ -1,0 +1,1 @@
+euler25 was completed with result: 4782
