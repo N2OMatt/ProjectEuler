@@ -204,13 +204,24 @@ def is_amicable(a):
 def permutations(seq):
     for p in itertools.permutations(seq):
         yield p;
-
+def all_permutations(seq):
+    l = [];
+    for p in permutations(seq):
+        l.append(p);
+    return l;
 def permutation_at_index(seq, index):
     i = 0;
     for p in permutations(seq):
         if(i == index):
             return p;
         i += 1;
+
+def unique_permutations(iterable, r=None):
+    previous = tuple()
+    for p in itertools.permutations(sorted(iterable), r):
+        if p > previous:
+            previous = p
+            yield p
 
 def infinite_range(start, inc = 1):
     i = start;
