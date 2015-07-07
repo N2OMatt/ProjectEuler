@@ -2,3 +2,4 @@ include/cpp
 problems/TODO
 src
 *.pyc
+.*
