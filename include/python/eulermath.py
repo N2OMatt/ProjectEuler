@@ -215,7 +215,6 @@ def permutation_at_index(seq, index):
         if(i == index):
             return p;
         i += 1;
-
 def unique_permutations(iterable, r=None):
     previous = tuple()
     for p in itertools.permutations(sorted(iterable), r):
@@ -223,6 +222,17 @@ def unique_permutations(iterable, r=None):
             previous = p
             yield p
 
+def rotation(seq):
+    original_seq = seq;
+    while(True):
+        elem = seq[0];
+        seq  = seq[1:];
+        seq.append(elem);
+        yield seq;
+        if(seq == original_seq):
+            return;
+def all_rotations(seq):
+    return list(rotation(seq));
 def infinite_range(start, inc = 1):
     i = start;
     while(True):
