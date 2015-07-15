@@ -7,7 +7,11 @@ import sys;
 import pdb;
 import math;
 import itertools;
+import operator
 
+def prod(factors):
+    return reduce(operator.mul, factors, 1);
+    
 ################################################################################
 ## Triangle Functions ##########################################################
 ################################################################################
