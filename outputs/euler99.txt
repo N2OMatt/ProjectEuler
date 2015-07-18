@@ -1,0 +1,1 @@
+euler99 was completed with result: zero based: 0, one based 1
