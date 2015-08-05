@@ -11,7 +11,7 @@ import operator
 
 def prod(factors):
     return reduce(operator.mul, factors, 1);
-    
+
 ################################################################################
 ## Triangle Functions ##########################################################
 ################################################################################
@@ -49,7 +49,7 @@ def is_right_triangle(a, b, c):
 ## GDC / LCM Functions #########################################################
 ################################################################################
 #Calculate the Greater Common Divisor for any given numbers.
-def gdc(args):
+def gdc(*args):
     return _gdc(args, None);
 
 #Check if the Greater Common Divisor for any given numbers is equal to n.
@@ -68,6 +68,12 @@ def euclidian_gdc(a, b, returnSteps = None):
     return a;
 
 #Calculate the Least Common Multiple for any given numbers.
+def fast_lcm(*args):
+    a = args[0];
+    b = args[1];
+
+    return (a / euclidian_gdc(a, b)) * b;
+
 def lcm(args):
     divisors = [];
 
@@ -141,6 +147,7 @@ def fibonacci(f1, f2):
 ################################################################################
 #Return a list of all evenly divisors of a given number.
 def factors(n):
+    # print "FACTORS of:", n;
     #If n is 0 or 1 just return a list of itself.
     if(n == 0 or n == 1):
         return [n];
@@ -285,6 +292,21 @@ def is_strictly_pandigital(n, start = 0, end = 9):
 ################################################################################
 def triangle_number(n):
     return (n*(n + 1)) / 2;
+
+def pentagonal_number(n):
+    return (n * (3*n -1)) / 2;
+
+def is_pentagonal_number(n):
+    x = (math.sqrt(24*n + 1) + 1) / 6;
+    if(x == int(x) and x > 0):
+        return True;
+    return False;
+
+def index_of_pentagonal_number(n):
+    x = (math.sqrt(24*n + 1) + 1) / 6;
+    if(x == int(x) and x > 0):
+        return int(x);
+    return -1;
 
 ################################################################################
 # Prime Functions ##############################################################
