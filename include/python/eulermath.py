@@ -152,16 +152,18 @@ def factors(n):
     if(n == 0 or n == 1):
         return [n];
 
+    #vars.
     i     = 1
     step  = int(n % 2 == 1) + 1; #Step 1 by 1 if even. 2 by 2 if odd.
     fac_l = [];
 
     #Find all factors.
-    while(i <= (n)):
+    while(i <= (int(n / 2))):
         if(n % i == 0):
             fac_l.append(i);
         i += step;
-
+        
+    fac_l.append(n);
     return fac_l;
 
 def factors_count(n):
