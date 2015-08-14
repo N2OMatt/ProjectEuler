@@ -143,28 +143,27 @@ def fibonacci(f1, f2):
         b = c;
 
 ################################################################################
-## Factors Functions ###########################################################
+## Factors Functions                                                          ##
 ################################################################################
-#Return a list of all evenly divisors of a given number.
 def factors(n):
-    # print "FACTORS of:", n;
-    #If n is 0 or 1 just return a list of itself.
+    #If n is 0 or 1 just return the number.
     if(n == 0 or n == 1):
-        return [n];
-
-    #vars.
+        yield n;
+    
+    #Vars.
     i     = 1
     step  = int(n % 2 == 1) + 1; #Step 1 by 1 if even. 2 by 2 if odd.
-    fac_l = [];
-
-    #Find all factors.
+    
     while(i <= (int(n / 2))):
         if(n % i == 0):
-            fac_l.append(i);
+            yield i;
         i += step;
-        
-    fac_l.append(n);
-    return fac_l;
+
+    yield n;
+
+#Return a list of all evenly divisors of a given number.
+def factors_list(n):
+    return list(factors(n));
 
 def factors_count(n):
     pfactors = prime_factors(n);
