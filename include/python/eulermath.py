@@ -151,12 +151,13 @@ def factors(n):
         yield n;
     
     #Vars.
-    i     = 1
-    step  = int(n % 2 == 1) + 1; #Step 1 by 1 if even. 2 by 2 if odd.
+    i     = int(n % 2 == 0) + 1;
+    step  = 2; #Step 1 by 1 if even. 2 by 2 if odd.
     
-    while(i <= (int(n / 2))):
+    while(i <= int(n / 2)):
         if(n % i == 0):
             yield i;
+        
         i += step;
 
     yield n;
