@@ -8,14 +8,12 @@ import eulersupport;
 #Read the huge number from the input file.
 def read_number():
     f = eulersupport.get_input_file();
+
     #Here the "number" is just a list of strings.
     #So transform it into one string.
-    s = "";
-    for l in f.readlines():
-        s += str(l);
-    
-    #Replace the new lines.
-    s = s.replace("\n", "");
+    #And replace the new lines.
+    s = "".join(f.readlines()).replace("\n", "");
+
     return s;
 
 def f(digits_count):
@@ -26,12 +24,12 @@ def f(digits_count):
         #Get a substring with length equal to number of digits
         #starting from i.
         sub_str = number[i : i + digits_count];
-        #Mutiply the numbers.        
+        #Mutiply the numbers.
         prod = reduce(lambda x, y: int(x) * int(y), sub_str);
         #Check if current product is greater than current max_prod.
-        if(prod > max_prod):        
+        if(prod > max_prod):
             max_prod = prod;
-    
+
     return max_prod;
 
 # Problem description:
@@ -49,9 +47,9 @@ def run_full():
     eulersupport.name = "euler08";
     run(13);
 
-def run_test():        
+def run_test():
     eulersupport.name = "euler08-Test";
-    run(4);    
+    run(4);
 
 def main():
     run_mode = eulersupport.get_run_mode();
