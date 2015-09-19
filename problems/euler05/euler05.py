@@ -6,20 +6,20 @@ import eulersupport;
 import eulermath;
 
 # Problem description.
-# 2520 is the smallest number that can be divided by each of the numbers from 
-# 1 to 10 without any remainder. What is the smallest positive number that is 
+# 2520 is the smallest number that can be divided by each of the numbers from
+# 1 to 10 without any remainder. What is the smallest positive number that is
 # evenly divisible by all of the numbers from 1 to 20?
 def run(upperbound):
-    result = eulermath.lcm(range(1, upperbound + 1));
+    result = eulermath.lcm(xrange(1, upperbound + 1));
     #Report Completion
     eulersupport.write_output(result);
-    
+
 def run_full():
     eulersupport.name = "euler05";
     run(20);
 
-def run_test():        
-    eulersupport.name = "euler05-Test";    
+def run_test():
+    eulersupport.name = "euler05-Test";
     run(10);
 
 def main():
