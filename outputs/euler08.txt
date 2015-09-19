@@ -1,1 +1,0 @@
-euler08 was completed with result: 23514624000

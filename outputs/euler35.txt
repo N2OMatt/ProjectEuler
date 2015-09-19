@@ -1,1 +1,0 @@
-euler35 was completed with result: 55

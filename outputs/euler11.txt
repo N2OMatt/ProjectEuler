@@ -1,1 +1,0 @@
-euler11 was completed with result: 70600674

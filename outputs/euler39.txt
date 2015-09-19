@@ -1,1 +1,0 @@
-euler39 was completed with result: [8, 840]

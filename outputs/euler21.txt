@@ -1,1 +1,0 @@
-euler21 was completed with result: 31626

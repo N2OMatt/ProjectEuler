@@ -1,1 +1,0 @@
-euler03 was completed with result: 6857

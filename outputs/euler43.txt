@@ -1,1 +1,0 @@
-euler43 was completed with result: 6

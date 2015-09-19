@@ -1,1 +1,0 @@
-euler27 was completed with result: -59231
