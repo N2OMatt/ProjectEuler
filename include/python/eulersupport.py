@@ -4,6 +4,7 @@
 import os;
 import os.path;
 import sys;
+import getopt;
 
 # Constants #
 #Run mode.
@@ -22,10 +23,18 @@ def get_input_file():
     return file(path);
 
 def get_run_mode():
-    if(len(sys.argv) > 1 and sys.argv[1] == kRunModeTest):
-        return kRunModeTest;
-    else:
-        return kRunModeFull;
+    #Get the command line options.
+    options = getopt.gnu_getopt(sys.argv[1:], "", [kRunModeTest, kRunModeFull]);
+
+    #Parse the options.
+    for key, value in options[0]:
+        key = key.lstrip("-");
+
+        if  (key == kRunModeTest): return kRunModeTest;
+        elif(key == kRunModeFull): return kRunModeFull;
+
+    #If no flags were given.
+    return kRunModeFull;
 
 def log(*msg):
     print name + ":",
