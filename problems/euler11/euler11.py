@@ -5,36 +5,41 @@ sys.path.insert(0, "../../include/python");
 import eulersupport;
 import eulermath;
 
-def g(m):
+#Make the product of list of numbers only if there
+#are four of them, otherwise return -1.
+#This simplify a lot our logic to search thru the matrix.
+def make_prod(m):
     if(len(m) == 4):
         return eulermath.prod(m);
     return -1;
 
 def find_horizontal(matrix, i, j):
-    return g(matrix[i][j:j+4]);
+    return make_prod(matrix[i][j:j+4]);
 
 def find_vertical(matrix, i, j):
     l = [];
     for e in matrix[i:i+4]:
         l.append(e[j]);
-    return g(l);
+    return make_prod(l);
 
 def find_diagonal1(matrix, i, j):
+    #Check if index going be inside bounds.
     if(i+4 <= len(matrix) and j+4 <= len(matrix[i])):
-        l = [];    
+        l = [];
         map(lambda x: l.append(matrix[i+x][j+x]), xrange(0,4));
-        return g(l);
+        return make_prod(l);
     return -1;
 
 def find_diagonal2(matrix, i, j):
+    #Check if index going be inside bounds.
     if(i+4 <= len(matrix) and j+4 <= len(matrix[i])):
         l = [];
         map(lambda x: l.append(matrix[i+x][j+(3 - x)]), xrange(0,4));
-        return g(l);
+        return make_prod(l);
     return -1;
 
 # Functions #
-# In the 20x20 grid below, four numbers along a diagonal line have 
+# In the 20x20 grid below, four numbers along a diagonal line have
 # been marked in red.
 #     08 02 22 97 38 15 00 40  00  75  04  05  07 78 52 12 50 77 91 08
 #     49 49 99 40 17 81 18 57  60  87  17  40  98 43 69 48 04 56 62 00
@@ -57,7 +62,7 @@ def find_diagonal2(matrix, i, j):
 #     20 73 35 29 78 31 90 01  74  31  49  71  48 86 81 16 23 57 05 54
 #     01 70 54 71 83 51 54 69  16  92  33  48  61 43 52 01 89 19 67 48
 # The product of these numbers is 26 x 63 x 78 x 14 = 1788696.
-# What is the greatest product of four adjacent numbers in the same direction 
+# What is the greatest product of four adjacent numbers in the same direction
 # (up, down, left, right, or diagonally) in the 20x20 grid?
 def run():
     #Get the input file.
@@ -68,16 +73,16 @@ def run():
     for l in f.readlines():
         l = l.replace("\n", "");
         matrix.append(map(int, l.split(" ")));
-    
-    greatest = -1;       
+
+    greatest = -1;
     #Perform the calculations.
     for i in xrange(len(matrix)):
-        for j in xrange(len(matrix[i])):        
+        for j in xrange(len(matrix[i])):
             h  = find_horizontal(matrix, i, j);
             v  = find_vertical(matrix, i, j);
             d1 = find_diagonal1(matrix, i, j);
             d2 = find_diagonal2(matrix, i, j);
-            
+
             curr = max([h,v,d1,d2]);
             if(curr > greatest):
                 greatest = curr;
@@ -91,6 +96,7 @@ def run_full():
 
 def run_test():
     eulersupport.name = "euler11-Test";
+    eulersupport.write_output("I'd no tests. :(");
 
 def main():
     run_mode = eulersupport.get_run_mode();
