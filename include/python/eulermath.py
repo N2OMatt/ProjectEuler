@@ -350,7 +350,7 @@ class PrimesHelper(object):
     #Find all primes less or equal than n and
     #return the last one. If the set of primes is
     #already found just return the prime.
-    def find_all_primes_up_to_n(self, n):
+    def find_all_primes_up_to_n(self, n, report = False):
         #We already have found a prime, just return it.
         if(self._primes[-1] > n):
             return self._primes[-1];
@@ -359,6 +359,8 @@ class PrimesHelper(object):
         curr_prime = self._primes[-1];
         while(curr_prime < n):
             curr_prime = self.find_next_prime();
+            if(report):
+                print "PrimesHelper.find_all_primes_up_to_n :", curr_prime;
 
         #We may found a prime greater than N. If is the case
         #remove it. So the greater prime is less or equal N.
@@ -367,9 +369,11 @@ class PrimesHelper(object):
 
         return self._primes[-1];
 
-    def find_all_primes_up_to_index(self, index):
+    def find_all_primes_up_to_index(self, index, report = False):
         while(len(self._primes) - 1 < index):
-            self.find_next_prime();
+            curr_prime = self.find_next_prime();
+            if(report):
+                print "PrimesHelper.find_all_primes_up_to_n :", curr_prime;
         return self._primes[-1];
 
     def get_primes(self):
