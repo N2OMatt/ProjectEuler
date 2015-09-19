@@ -297,6 +297,19 @@ def is_strictly_pandigital(n, start = 0, end = 9):
 def triangle_number(n):
     return (n*(n + 1)) / 2;
 
+def triangle_numbers(start = 1, end = None):
+    i = start;
+    while(True):
+        #Calculate the number at index.
+        n = triangle_number(i);
+        yield n;
+
+        i += 1;
+
+        #If we had a end point and we reach it get out.
+        if(end is not None and start >= end):
+            break;
+
 def pentagonal_number(n):
     return (n * (3*n -1)) / 2;
 
