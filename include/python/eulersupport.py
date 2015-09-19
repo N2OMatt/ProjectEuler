@@ -47,9 +47,10 @@ def write_output(result):
 
     #Print to console.
     print completion_string;
+
     #Print to file.
     f = file(os.path.abspath(os.path.join(_kOutputPath, name + ".txt")), "w");
-    f.write(completion_string);
+    f.write(completion_string + "\n");
     f.close();
 
 def list_to_str(l, sep = ""):
