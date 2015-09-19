@@ -13,7 +13,7 @@ def prod(factors):
     return reduce(operator.mul, factors, 1);
 
 ################################################################################
-## Triangle Functions ##########################################################
+## Triangle Functions                                                         ##
 ################################################################################
 #Check if the given sides can form a triangle.
 def is_triangle(a, b, c):
@@ -46,7 +46,7 @@ def is_right_triangle(a, b, c):
 
 
 ################################################################################
-## GDC / LCM Functions #########################################################
+## GDC / LCM Functions                                                        ##
 ################################################################################
 #Calculate the Greater Common Divisor for any given numbers.
 def gdc(*args):
@@ -126,7 +126,7 @@ def _gdc(args, target_gdc):
 
 
 ################################################################################
-## Fibonnaci Functions #########################################################
+## Fibonnaci Functions                                                        ##
 ################################################################################
 #Generate a sequence of fibonacci numbers.
 def fibonacci(f1, f2):
@@ -142,6 +142,7 @@ def fibonacci(f1, f2):
         a = b;
         b = c;
 
+
 ################################################################################
 ## Factors Functions                                                          ##
 ################################################################################
@@ -149,15 +150,15 @@ def factors(n):
     #If n is 0 or 1 just return the number.
     if(n == 0 or n == 1):
         yield n;
-    
+
     #Vars.
     i     = int(n % 2 == 0) + 1;
     step  = 2; #Step 1 by 1 if even. 2 by 2 if odd.
-    
+
     while(i <= int(n / 2)):
         if(n % i == 0):
             yield i;
-        
+
         i += step;
 
     yield n;
@@ -201,7 +202,7 @@ def prime_factors(n):
 
 
 ################################################################################
-## Other Functions #############################################################
+## Other Functions                                                            ##
 ################################################################################
 #Calculate a n!
 def factorial(n):
@@ -246,14 +247,16 @@ def rotation(seq):
             return;
 def all_rotations(seq):
     return list(rotation(seq));
+
 def infinite_range(start, inc = 1):
     i = start;
     while(True):
         yield i;
         i += inc;
 
+
 ################################################################################
-## Digits Functions ############################################################
+## Digits Functions                                                           ##
 ################################################################################
 def list_of_digits(n):
     return map(int, str(n));
@@ -289,8 +292,9 @@ def is_strictly_pandigital(n, start = 0, end = 9):
         return False;
     return is_pandigital(n, start, end);
 
+
 ################################################################################
-## Progressions Functions ######################################################
+## Progressions Functions                                                     ##
 ################################################################################
 def triangle_number(n):
     return (n*(n + 1)) / 2;
@@ -310,8 +314,9 @@ def index_of_pentagonal_number(n):
         return int(x);
     return -1;
 
+
 ################################################################################
-# Prime Functions ##############################################################
+# Prime Functions                                                             ##
 ################################################################################
 class PrimesHelper(object):
     ## iVars ##
