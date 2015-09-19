@@ -1,0 +1,1 @@
+euler10-Test was completed with result: 17
