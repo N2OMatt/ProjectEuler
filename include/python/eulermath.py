@@ -68,13 +68,11 @@ def euclidian_gdc(a, b, returnSteps = None):
     return a;
 
 #Calculate the Least Common Multiple for any given numbers.
-def fast_lcm(*args):
-    a = args[0];
-    b = args[1];
-
+def fast_lcm(a, b):
     return (a / euclidian_gdc(a, b)) * b;
 
 def lcm(args):
+    args = list(args);
     divisors = [];
 
     index = 0;
