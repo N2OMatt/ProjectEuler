@@ -17,6 +17,7 @@ def collatz(n) :
         else:
             n = (3 * n) + 1;
         size += 1;
+
     return size;
 
 #Problem Description:
@@ -31,14 +32,16 @@ def collatz(n) :
 # Which starting number, under one million, produces the longest chain?
 # NOTE: Once the chain starts the terms are allowed to go above one million.
 def run(upperbound):
-    maxSize = 0; #Greatest sequence.
-    n       = 0; #The number the produces the greatest sequence.
+    max_size = 0; #Greatest sequence.
+    n        = 0; #The number the produces the greatest sequence.
 
-    for i in range(1, upperbound + 1):
-        print i;
+    for i in xrange(1, upperbound + 1):
         size = collatz(i);  #Get the size of the sequence.
-        if(size > maxSize):
-            maxSize = size;
+
+        print "Sequence:{} - size{}".format(i, size);
+
+        if(size > max_size):
+            max_size = size;
             n = i;
 
     #Print the result.
