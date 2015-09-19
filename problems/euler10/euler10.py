@@ -12,10 +12,10 @@ import eulermath;
 def run(upperbound):
     helper = eulermath.PrimesHelper();
     print "Starting find primes...";
-    helper.find_all_primes_up_to_n(upperbound);
+    helper.find_all_primes_up_to_n(upperbound, True);
     print "Find primes done."
     result = sum(helper.get_primes());
-    
+
     #Report completion.
     eulersupport.write_output(result);
 
