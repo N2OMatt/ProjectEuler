@@ -218,20 +218,23 @@ def is_amicable(a):
 def permutations(seq):
     for p in itertools.permutations(seq):
         yield p;
+
 def all_permutations(seq):
     l = [];
     for p in permutations(seq):
         l.append(p);
     return l;
+
 def permutation_at_index(seq, index):
     i = 0;
     for p in permutations(seq):
         if(i == index):
             return p;
         i += 1;
-def unique_permutations(iterable, r=None):
+
+def unique_permutations(iterable):
     previous = tuple()
-    for p in itertools.permutations(sorted(iterable), r):
+    for p in itertools.permutations(sorted(iterable)):
         if p > previous:
             previous = p
             yield p
@@ -280,6 +283,10 @@ def palindromes(start, end = None):
 def palindromes_fast(start, end=None):
     pass;
 
+# def pandigitals(start=0, end=9):
+#     for perm in unique_permutations(list(range(start, end+1))):
+#         yield perm;
+        
 def is_pandigital(n, start = 0, end = 9):
     str_n = str(n);
     for i in xrange(start, end + 1):
@@ -341,7 +348,7 @@ class PrimesHelper(object):
         return n in self._primes;
 
     #Return the next prime found.
-    def find_next_prime(self):
+    def find_next_prime(self):        
         n = self._primes[-1] + 2;
         while(True):
             if(self.check_primality(n)):
@@ -352,7 +359,7 @@ class PrimesHelper(object):
     #Find all primes less or equal than n and
     #return the last one. If the set of primes is
     #already found just return the prime.
-    def find_all_primes_up_to_n(self, n):
+    def find_all_primes_up_to_n(self, n):        
         #We already have found a prime, just return it.
         if(self._primes[-1] > n):
             return self._primes[-1];
